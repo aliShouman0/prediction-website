@@ -1,17 +1,20 @@
+/* css reset */
 * {
   margin: 0;
   padding: 0;
 }
 body {
-  background-color: #CFD2CF;
+  background-color: #cfd2cf;
 }
 
 .container {
   display: flex;
   height: 100vh;
   width: 100vw;
+  transition: all 0.5s ease-in-out;
 }
 
+/* back ground of dog img */
 .img {
   background: url(https:\/\/images.dog.ceo\/breeds\/brabancon\/n02112706_426.jpg);
   background-size: cover;
@@ -21,22 +24,26 @@ body {
   height: 90%;
   margin: 1rem;
   border-radius: 50px;
+  transition: all 0.5s ease-in-out;
 }
 
 .card {
   margin: 1rem;
   border-radius: 50px;
-  background-color: #F5EDDC;
+  background-color: #f5eddc;
   height: 90%;
   width: 50%;
   border-radius: 50px;
   text-align: center;
   display: flex;
+  transition: all 0.5s ease-in-out;
 }
 
-.result,.input{
+/*make result and input space as 2nd small card  */
+.result,
+.input {
   margin: 1rem;
-  background-color: #A2B5BB;
+  background-color: #a2b5bb;
   height: 90%;
   width: 50%;
   border-radius: 50px;
@@ -45,35 +52,39 @@ body {
   justify-content: center;
   flex-direction: column;
 }
- 
-.input > input{
+
+/* input name */
+.input > input {
   width: 80%;
   height: 25px;
   border-radius: 50px;
   padding: 8px;
   outline: none;
-  border: 1px solid #CFD2CF;
-  font-size: 1rem;
+  border: 1px solid #cfd2cf;
+  font-size: 1vw;
   margin: 1rem;
 }
 
-.btn{
+.btn {
   width: 50%;
   height: 35px;
   border-radius: 50px;
   padding: 8px;
   font-weight: bold;
-  border: 1px solid #CFD2CF;
+  border: 1px solid #cfd2cf;
   cursor: pointer;
   transition: all 0.3s ease-in-out;
-  font-size: 1rem;
+  font-size: 1vw;
 }
 
-.btn:hover{
+.btn:hover,
+.result p:hover {
   background-color: gray;
+  color: white;
 }
 
-.result p{
+/*result of api */
+.result p {
   margin: 1rem;
   height: 90%;
   width: 90%;
@@ -82,6 +93,42 @@ body {
   align-items: center;
   justify-content: center;
   flex-direction: column;
-  background-color: #F5EDDC;
-  font-size: 1.5rem;
+  background-color: #f5eddc;
+  font-size: 1.5vw;
+  transition: all 0.5s ease-in-out;
+}
+
+/* Media Query */
+
+@media only screen and (max-width: 980px) {
+  .card,
+  .img {
+    height: 50%;
+    width: 90%;
+  }
+
+  .container {
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+  }
+
+  .result p {
+    font-size: 5vw;
+  }
+  
+  .input > input {
+    width: 65%;
+    height: 60px;
+    padding: 25px;
+    font-size: 3.5vw;
+    margin-bottom: 30px;
+  }
+
+  .btn {
+    width: 50%;
+    height: 85px;
+    padding: 25px;
+    font-size: 3vw;
+  }
 }
