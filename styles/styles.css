@@ -16,7 +16,7 @@ body {
 
 /* back ground of dog img */
 .img {
-  background: url(https:\/\/images.dog.ceo\/breeds\/brabancon\/n02112706_426.jpg);
+  /* background: url(https:\/\/images.dog.ceo\/breeds\/brabancon\/n02112706_426.jpg); */
   background-size: cover;
   background-repeat: no-repeat;
   background-position: center;
