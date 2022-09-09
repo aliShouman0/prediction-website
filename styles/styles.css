@@ -1,0 +1,87 @@
+* {
+  margin: 0;
+  padding: 0;
+}
+body {
+  background-color: #CFD2CF;
+}
+
+.container {
+  display: flex;
+  height: 100vh;
+  width: 100vw;
+}
+
+.img {
+  background: url(https:\/\/images.dog.ceo\/breeds\/brabancon\/n02112706_426.jpg);
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-position: center;
+  width: 50%;
+  height: 90%;
+  margin: 1rem;
+  border-radius: 50px;
+}
+
+.card {
+  margin: 1rem;
+  border-radius: 50px;
+  background-color: #F5EDDC;
+  height: 90%;
+  width: 50%;
+  border-radius: 50px;
+  text-align: center;
+  display: flex;
+}
+
+.result,.input{
+  margin: 1rem;
+  background-color: #A2B5BB;
+  height: 90%;
+  width: 50%;
+  border-radius: 50px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+}
+ 
+.input > input{
+  width: 80%;
+  height: 25px;
+  border-radius: 50px;
+  padding: 8px;
+  outline: none;
+  border: 1px solid #CFD2CF;
+  font-size: 1rem;
+  margin: 1rem;
+}
+
+.btn{
+  width: 50%;
+  height: 35px;
+  border-radius: 50px;
+  padding: 8px;
+  font-weight: bold;
+  border: 1px solid #CFD2CF;
+  cursor: pointer;
+  transition: all 0.3s ease-in-out;
+  font-size: 1rem;
+}
+
+.btn:hover{
+  background-color: gray;
+}
+
+.result p{
+  margin: 1rem;
+  height: 90%;
+  width: 90%;
+  border-radius: 50px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+  background-color: #F5EDDC;
+  font-size: 1.5rem;
+}
