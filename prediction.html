@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <title>Prediction Website</title>
+  <link rel="stylesheet" href="styles/styles.css">
+</head>
+
+<body>
+  
+  <div class="container">
+    <p class="activity d-none" id="bored_text">Wait...</p>
+    <!-- img will be as a background -->
+    <div class="img" id="img"></div>
+    <!-- form will be as a card to the right of img -->
+    <div class="card">
+      <div class="input">
+        <h4 class="ip" id="ip">Your IP@</h4>
+        <input type="text" id="name" placeholder="Name" required>
+        <button type="button" id="prediction" class="btn">Click Here</button>
+        <button type="button" id="bored" class="btn bored ">Bored </button>
+      </div>
+      <!-- result of Prediction -->
+      <div class="result">
+        <p class="age" id="age">Age</p>
+        <p class="gender" id="gender">Gender</p>
+        <p class="nationality" id="nationality">Nationality </p>
+      </div>
+    </div>
+  </div>
+
+  <script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
+  <script src="scripts/prediction.js"></script>
+</body>
+
+</html>

@@ -2,31 +2,65 @@
 <html lang="en">
 
 <head>
-  <title>Prediction Website</title>
+  <title>Login</title>
   <link rel="stylesheet" href="styles/styles.css">
+
 </head>
 
 <body>
+  <p class="popUp d-none" id="popUp"></p>
 
-  <div class="container">
-    <!-- img will be as a background -->
-    <div class="img" id="img"></div>
-    <!-- form will be as a card to the right of img -->
-    <div class="card">
-      <div class="input">
-        <input type="text" id="name" placeholder="Name" required>
-        <button type="button" id="prediction" class="btn">Click Here</button>
+  <div class="container center">
+
+    <div class="card card-large">
+      <div class="login   ">
+
+        <div class="card-title">
+          <h5>Login</h5>
+        </div>
+
+        <form class="form-login">
+
+          <div class="form-group">
+            <label for="userName-login ">User Name</label>
+            <input type="text" id="userName-login" placeholder="Enter userName" required>
+          </div>
+
+          <div class="form-group">
+            <label for="password-login">Password</label>
+            <input type="password" id="password-login" placeholder="Enter Password" required>
+          </div>
+
+          <button type="button" class="btn" id="login"">Login</button>
+        </form>
+
       </div>
-      <!-- result of Prediction -->
-      <div class="result">
-        <p class="age" id="age">Age</p>
-        <p class="gender" id="gender">Gender</p>
-        <p class="nationality" id="nationality">Nationality </p>
+
+      <div class=" sigup">
+            <div class="card-title">
+              <h5>Sign up </h5>
+            </div>
+            <form class="form-sigup">
+              <div class="form-group">
+                <label for="userName-sigup">User Name</label>
+                <input type="text" id="userName-sigup" placeholder="Enter userName" required>
+              </div>
+              <div class="form-group">
+                <label for="password-sigup">Password</label>
+                <input type="password" id="password-sigup" placeholder="Enter Password" required>
+              </div>
+              <button type="button" class="btn" id="signup">Sign up</button>
+            </form>
       </div>
+
     </div>
+
+
   </div>
 
+
   <script src="scripts/index.js"></script>
+
 </body>
 
 </html>
