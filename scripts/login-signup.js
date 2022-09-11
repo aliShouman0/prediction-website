@@ -5,7 +5,7 @@ const userName_login = document.querySelector("#userName-login");
 const password_login = document.querySelector("#password-login");
 const login = document.querySelector("#login");
 const signup = document.querySelector("#signup");
-const error = document.querySelector("#error");
+const pop_Up = document.querySelector("#popUp");
 
 // add user signup
 signup.addEventListener("click", (e) => {
@@ -23,9 +23,9 @@ signup.addEventListener("click", (e) => {
     if (data == null) data = [];
     data.push(addUser);
     localStorage.setItem("users", JSON.stringify(data));
-    console.log("add done");
+    popUp("Add Done");
   } else {
-    errorEnter();
+    popUp("Error Enter !!");
   }
 
   e.preventDefault();
@@ -52,19 +52,24 @@ login.addEventListener("click", (e) => {
       }
     }
     if (!login) {
-      errorEnter();
+      popUp("Error Enter !!");
     }
   } else {
-    errorEnter();
+    popUp("Error Enter !!");
   }
   e.preventDefault();
 });
 
-function removeError() {
-  error.classList.add("d-none");
+function removeMessage() {
+  pop_Up.classList.add("d-none");
 }
 
-function errorEnter() {
-  error.classList.remove("d-none");
-  setTimeout(removeError, 3000);
+function popUp(message) {
+  userName_sigup.value = "";
+  password_sigup.value = "";
+  userName_login.value = "";
+  password_login.value = "";
+  pop_Up.textContent = message;
+  pop_Up.classList.remove("d-none");
+  setTimeout(removeMessage, 3000);
 }

@@ -5,10 +5,12 @@ const age = document.querySelector("#age");
 const img = document.querySelector("#img");
 const btn = document.querySelector("#prediction");
 const input_name = document.querySelector("#name");
+const bored_btn = document.querySelector("#bored");
 // api
 let gender_api_link = "https://api.genderize.io?name=";
 let age_api_link = "https://api.agify.io/?name=";
 let nationality_api_link = "https://api.nationalize.io/?name=";
+let bored_api="https://www.boredapi.com/api/activity";
 
 // get dog img put it on screen if no error
 fetch("https://dog.ceo/api/breeds/image/randoma").then((res) => {
@@ -20,7 +22,6 @@ fetch("https://dog.ceo/api/breeds/image/randoma").then((res) => {
       img.style.backgroundPosition = "center";
     });
   } else {
-    console.log("some went wrong");
     img.style.backgroundColor = "red";
     img.textContent = "Some Went Wrong";
     img.style.textAlign = "center";
@@ -30,12 +31,12 @@ fetch("https://dog.ceo/api/breeds/image/randoma").then((res) => {
 
 // btn click then start fetch api if  enter a value
 btn.addEventListener("click", () => {
-  value = input_name.value;
+  let value = input_name.value;
   // test if any thing enter
   if (value != "") {
-    gender_api = gender_api_link + value;
-    age_api = age_api_link + value;
-    nationality_api = nationality_api_link + value;
+    let gender_api = gender_api_link + value;
+    let age_api = age_api_link + value;
+    let nationality_api = nationality_api_link + value;
 
     //gender api
     fetch(gender_api).then((res) => {
@@ -56,7 +57,7 @@ btn.addEventListener("click", () => {
     fetch(nationality_api).then((res) => {
       if (res.ok) {
         res.json().then((data) => {
-          country = data.country;
+          let country = data.country;
           if (country.length > 0) {
             if (country.length > 1) {
               nationality.textContent = `Nationality: ${country[0].country_id}, ${country[1].country_id} `;
