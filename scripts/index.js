@@ -15,7 +15,7 @@ let nationality_api_link = "https://api.nationalize.io/?name=";
 let bored_api = "https://www.boredapi.com/api/activity";
 
 // get dog img put it on screen if no error
-fetch("https://dog.ceo/api/breeds/image/randoma").then((res) => {
+fetch("https://dog.ceo/api/breeds/image/random").then((res) => {
   if (res.ok) {
     res.json().then((data) => {
       img.style.background = `url(${data.message})`;
@@ -92,9 +92,9 @@ btn.addEventListener("click", () => {
   }
 });
 
+// bored_api
 bored_btn.addEventListener("click", () => {
   axios.get(bored_api).then((res) => {
-    console.log(res);
     if (res.status == 200) {
       bored_text.textContent = res.data.activity;
     } else {
@@ -105,6 +105,7 @@ bored_btn.addEventListener("click", () => {
   setTimeout(removeBored, 8000);
 });
 
+// remove Bored text after time
 function removeBored() {
   bored_text.classList.add("d-none");
   bored_text.textContent = "Wait..";

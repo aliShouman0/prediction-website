@@ -79,7 +79,8 @@ body {
   display: none;
 }
 
-.form-login {
+.form-login,
+.form-sigup {
   margin: 0.5rem;
   font-size: 1vw;
   background-color: #cfd2cf;
@@ -134,8 +135,8 @@ body {
 }
 
 /* Bored  btn */
-.bored { 
-  width: 70%; 
+.bored {
+  width: 70%;
   margin-top: 1rem;
 }
 
@@ -161,11 +162,11 @@ body {
 }
 
 /* activity from api */
-.activity{
+.activity {
   position: absolute;
   top: 50px;
   left: 50px;
-  background-color: rgba(84, 97, 116, 0.3);
+  background-color: rgba(84, 97, 116, 0.5);
   width: 43%;
   height: 8%;
   text-align: center;
@@ -173,7 +174,7 @@ body {
   border-radius: 10px;
   font-size: 2vw;
   font-weight: bolder;
-
+  color: white;
 }
 /* Media Query */
 
@@ -207,5 +208,44 @@ body {
     height: 65px;
     padding: 15px;
     font-size: 3vw;
+  }
+
+  .activity { 
+    width: 63%;
+    height: auto;
+    font-size: 7vw;
+  }
+
+  .card-large {
+    width: 90vw;
+    height: auto;
+  }
+
+  .card-title {
+    font-size: 6vw;
+    width: 50%;
+    height: auto;
+    margin: 1rem;
+  }
+
+  .form-login,
+  .form-sigup {
+    width: 85%;
+    height: auto;
+    margin: 2rem;
+  }
+
+  .form-group > label {
+    width: 10px;
+    font-weight: bolder;
+    font-size: 3vw;
+  }
+
+  .form-group > input {
+    width: 70%;
+    height: 25px;
+    padding: 8px;
+    font-size: 2vw;
+    margin: 0.5rem;
   }
 }

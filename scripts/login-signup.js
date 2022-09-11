@@ -60,10 +60,12 @@ login.addEventListener("click", (e) => {
   e.preventDefault();
 });
 
+// remove popup message after t time
 function removeMessage() {
   pop_Up.classList.add("d-none");
 }
 
+// popup message error code or add user done
 function popUp(message) {
   userName_sigup.value = "";
   password_sigup.value = "";
