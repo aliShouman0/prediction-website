@@ -176,6 +176,10 @@ body {
   font-weight: bolder;
   color: white;
 }
+
+.ip {
+  font-size: 1.5vw;
+}
 /* Media Query */
 
 @media only screen and (max-width: 980px) {
@@ -210,10 +214,15 @@ body {
     font-size: 3vw;
   }
 
-  .activity { 
+  .activity {
     width: 63%;
     height: auto;
     font-size: 7vw;
+  }
+
+  .ip {
+    font-size: 3vw;
+    margin-top: 1rem;
   }
 
   .card-large {

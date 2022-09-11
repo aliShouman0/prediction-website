@@ -1,112 +1,77 @@
 //DOM get all thing will need
-const nationality = document.querySelector("#nationality");
-const gender = document.querySelector("#gender");
-const age = document.querySelector("#age");
-const img = document.querySelector("#img");
-const btn = document.querySelector("#prediction");
-const input_name = document.querySelector("#name");
-const bored_btn = document.querySelector("#bored");
-const bored_text = document.querySelector("#bored_text");
+const userName_sigup = document.querySelector("#userName-sigup");
+const password_sigup = document.querySelector("#password-sigup");
+const userName_login = document.querySelector("#userName-login");
+const password_login = document.querySelector("#password-login");
+const login = document.querySelector("#login");
+const signup = document.querySelector("#signup");
+const pop_Up = document.querySelector("#popUp");
 
-// api
-let gender_api_link = "https://api.genderize.io?name=";
-let age_api_link = "https://api.agify.io/?name=";
-let nationality_api_link = "https://api.nationalize.io/?name=";
-let bored_api = "https://www.boredapi.com/api/activity";
+// add user signup
+signup.addEventListener("click", (e) => {
+  let userName = userName_sigup.value;
+  let password = password_sigup.value;
 
-// get dog img put it on screen if no error
-fetch("https://dog.ceo/api/breeds/image/random").then((res) => {
-  if (res.ok) {
-    res.json().then((data) => {
-      img.style.background = `url(${data.message})`;
-      img.style.backgroundRepeat = "no-repeat";
-      img.style.backgroundSize = "cover";
-      img.style.backgroundPosition = "center";
-    });
+  // entered value not nulls
+  if (userName != "" && password != "") {
+    let data = JSON.parse(localStorage.getItem("users"));
+    let addUser = {
+      userName: userName,
+      password: password,
+    };
+    // add user or append if it exist
+    if (data == null) data = [];
+    data.push(addUser);
+    localStorage.setItem("users", JSON.stringify(data));
+    popUp("Add Done");
   } else {
-    img.style.backgroundColor = "red";
-    img.textContent = "Some Went Wrong";
-    img.style.textAlign = "center";
-    img.style.color = "white";
+    popUp("Error Enter !!");
   }
+
+  e.preventDefault();
 });
 
-// btn click then start fetch api if  enter a value
-btn.addEventListener("click", () => {
-  let value = input_name.value;
-  // test if any thing enter
-  if (value != "") {
-    let gender_api = gender_api_link + value;
-    let age_api = age_api_link + value;
-    let nationality_api = nationality_api_link + value;
+// login
+login.addEventListener("click", (e) => {
+  let userName = userName_login.value;
+  let password = password_login.value;
+  let login = false;
 
-    //gender api
-    fetch(gender_api).then((res) => {
-      if (res.ok) {
-        res.json().then((data) => {
-          if (data.gender != null) {
-            gender.textContent = `Gender: ${data.gender}`;
-          } else {
-            gender.textContent = `No Data`;
-          }
-        });
-      } else {
-        gender.textContent = `some went wrong`;
+  // entered value not null
+  if (userName != "" && password != "") {
+    let data = JSON.parse(localStorage.getItem("users"));
+    let user;
+    // search for user
+    for (let i = 0; i < data.length; i++) {
+      user = data[i];
+      if (user["userName"] == userName && user["password"] == password) {
+        console.log("loign done");
+        window.location.replace("prediction.html");
+        login = true;
+        break;
       }
-    });
-
-    //nationality api
-    fetch(nationality_api).then((res) => {
-      if (res.ok) {
-        res.json().then((data) => {
-          let country = data.country;
-          if (country.length > 0) {
-            if (country.length > 1) {
-              nationality.textContent = `Nationality: ${country[0].country_id}, ${country[1].country_id} `;
-            } else {
-              nationality.textContent = `Nationality: ${country[0].country_id}`;
-            }
-          } else {
-            nationality.textContent = `No Data`;
-          }
-        });
-      } else {
-        nationality.textContent = `some went wrong`;
-      }
-    });
-
-    //age api
-    fetch(age_api).then((res) => {
-      if (res.ok) {
-        res.json().then((data) => {
-          if (data.age != null) {
-            age.textContent = `Age: ${data.age}`;
-          } else {
-            age.textContent = `No Data`;
-          }
-        });
-      } else {
-        age.textContent = `some went wrong`;
-      }
-    });
-  }
-});
-
-// bored_api
-bored_btn.addEventListener("click", () => {
-  axios.get(bored_api).then((res) => {
-    if (res.status == 200) {
-      bored_text.textContent = res.data.activity;
-    } else {
-      bored_text.textContent = "some went wrong";
     }
-  });
-  bored_text.classList.remove("d-none");
-  setTimeout(removeBored, 8000);
+    if (!login) {
+      popUp("Error Enter !!");
+    }
+  } else {
+    popUp("Error Enter !!");
+  }
+  e.preventDefault();
 });
 
-// remove Bored text after time
-function removeBored() {
-  bored_text.classList.add("d-none");
-  bored_text.textContent = "Wait..";
+// remove popup message after t time
+function removeMessage() {
+  pop_Up.classList.add("d-none");
+}
+
+// popup message error code or add user done
+function popUp(message) {
+  userName_sigup.value = "";
+  password_sigup.value = "";
+  userName_login.value = "";
+  password_login.value = "";
+  pop_Up.textContent = message;
+  pop_Up.classList.remove("d-none");
+  setTimeout(removeMessage, 3000);
 }
