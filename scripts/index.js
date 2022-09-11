@@ -11,7 +11,7 @@ let age_api_link = "https://api.agify.io/?name=";
 let nationality_api_link = "https://api.nationalize.io/?name=";
 
 // get dog img put it on screen if no error
-fetch("https://dog.ceo/api/breeds/image/random").then((res) => {
+fetch("https://dog.ceo/api/breeds/image/randoma").then((res) => {
   if (res.ok) {
     res.json().then((data) => {
       img.style.background = `url(${data.message})`;
