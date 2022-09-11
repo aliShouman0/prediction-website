@@ -6,11 +6,13 @@ const img = document.querySelector("#img");
 const btn = document.querySelector("#prediction");
 const input_name = document.querySelector("#name");
 const bored_btn = document.querySelector("#bored");
+const bored_text = document.querySelector("#bored_text");
+
 // api
 let gender_api_link = "https://api.genderize.io?name=";
 let age_api_link = "https://api.agify.io/?name=";
 let nationality_api_link = "https://api.nationalize.io/?name=";
-let bored_api="https://www.boredapi.com/api/activity";
+let bored_api = "https://www.boredapi.com/api/activity";
 
 // get dog img put it on screen if no error
 fetch("https://dog.ceo/api/breeds/image/randoma").then((res) => {
@@ -89,3 +91,21 @@ btn.addEventListener("click", () => {
     });
   }
 });
+
+bored_btn.addEventListener("click", () => {
+  axios.get(bored_api).then((res) => {
+    console.log(res);
+    if (res.status == 200) {
+      bored_text.textContent = res.data.activity;
+    } else {
+      bored_text.textContent = "some went wrong";
+    }
+  });
+  bored_text.classList.remove("d-none");
+  setTimeout(removeBored, 8000);
+});
+
+function removeBored() {
+  bored_text.classList.add("d-none");
+  bored_text.textContent = "Wait..";
+}
