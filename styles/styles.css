@@ -57,6 +57,26 @@ body {
   align-items: center;
 }
 
+/* for login sign up */
+.error {
+  position: absolute;
+  text-align: center;
+  color: black;
+  background-color: grey;
+  height: 5%;
+  width: 10%;
+  border-radius: 10px;
+  font-weight: bold;
+  font-size: 1.5vw;
+  padding: 0.5rem;
+  right: 15px;
+  top: 10px;
+}
+
+.d-none {
+  display: none;
+}
+
 .form-login {
   margin: 0.5rem;
   font-size: 1vw;
@@ -69,7 +89,8 @@ body {
 /*make result and input space as 2nd small card  */
 .result,
 .input,
-.login,.sigup {
+.login,
+.sigup {
   margin: 1rem;
   background-color: #a2b5bb;
   height: 90%;
